@@ -56,6 +56,7 @@ def menu():
             else:
                 print("❌ Неверный выбор. Пожалуйста, введите число от 0 до 6.")
 
+
         except ValueError:
             print("⚠️ Пожалуйста, введите число.")
 
@@ -72,6 +73,12 @@ def clear_screen():
 # Заглушки для функций (их можно будет реализовать позже)
 def show_report():
     print("📊 Здесь будет главный отчёт...")
+
+def min_format(num):
+
+    return str((int(num[:-3]) * 60) + int(num[-2:]))
+
+
 
 
 def add_activity():
@@ -94,7 +101,7 @@ def add_activity():
     time_task = input(random.choice(time_prompts))
     save_activity(
         category=akt,
-        duration=time_task,
+        duration=min_format(time_task),
         date=datetime.now().strftime("%Y-%m-%d"),
         time_today=datetime.now().strftime("%H:%M")
     )
